@@ -32,6 +32,7 @@ const ColorList = ({ colors, updateColors }) => {
             console.log('Errrrrrror')
             return color
           }
+        setColorToEdit(initialColor)
         }))
       })
   };
@@ -54,6 +55,7 @@ const ColorList = ({ colors, updateColors }) => {
       .then(res => {
         console.log(colorToAdd)
         updateColors([...colors, colorToAdd])
+        setColorToAdd(initialColor)
       })
   };
 
@@ -112,6 +114,8 @@ const ColorList = ({ colors, updateColors }) => {
         </form>
       )}
       
+      {/* <div className='spacer' /> */}
+
         <form onSubmit={saveNew}>
           <legend>new color</legend>
           <label>
@@ -137,7 +141,7 @@ const ColorList = ({ colors, updateColors }) => {
             />
           </label>
           <div className="button-row">
-            <button type="submit">save</button>
+            <button type="submit">add</button>
             <button onClick={() => setEditing(false)}>cancel</button>
           </div>
         </form>
