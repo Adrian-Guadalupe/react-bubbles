@@ -27,9 +27,23 @@ In this project you will create a login page and request a token from the server
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain what a token is used for.
+
+      Modern web services dealing with JSON data often use Jason Web Tokens (JWT)s. These tokens, issued by the server, are strings of cryptic text, which can be stored on the client-side using local storage or session storage. The server can readily tell the client that it issued the token. It can also read the token and make decisions for data transfer based on the client’s permission.
+
 - [ ] What steps can you take in your web apps to keep your data secure?
+
+      Implement authentication processes for our axios calls (axiosWithAuth) and use protected routes - routes that should only render with authentication. Normally, the client will make a login request, sending the server the user’s username and password. Then, the server will check those credentials against the database, and if it can authenticate the user, it will return a token. Once we have this token, we can add two layers of protection to our app. One uses protected routes, and the other sends an authentication header with our API calls.
+
 - [ ] Describe how web servers work.
+
+      The physical computer device that we call a web server (much like the one shown below) is connected to the internet, and stores the code for different websites to be shared across the world at all times. When we load the code for our websites, or web apps, on a server like this, we would say that the server is “hosting” our website/app. However, the server itself needs some code to tell it what to do. That software program is also called a web server. Its main purpose is to “serve” web pages it retrieves from your project code to users upon request. Computers can connect to the internet via the world wide web, locate a specific server computer through a URL and domain name, and retrieve information or resources from that server.
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+      Create = .post()
+      Read = .get()
+      Update = .put()
+      Delete = .delete()
 
 
 ## Project Set Up
@@ -63,14 +77,14 @@ The MVP of this project will be broken up between 2 stages. Follow each step.
 
 Build a login form to authenticate your users.
 
-- [ ] Construct an AXIOS request to retrieve a token from the server. You'll use this token to interact with the API
-- [ ] Save the token to localStorage
-- [ ] Build a `axiosWithAuth` module to create an instance of axios with the authentication header
-- [ ] Build a `PrivateRoute` component and use it to protect a route that renders the `BubblesPage` component
+- [X]  Construct an AXIOS request to retrieve a token from the server. You'll use this token to interact with the API
+- [X]  Save the token to localStorage
+- [X] Build a `axiosWithAuth` module to create an instance of axios with the authentication header
+- [X] Build a `PrivateRoute` component and use it to protect a route that renders the `BubblesPage` component
 
 ### Stage 2 - Consuming the API
 
-- [ ] When `BubblePages` renders, make a GET request to fetch the color data for your bubbles.
+- [X] When `BubblePages` renders, make a GET request to fetch the color data for your bubbles.
 - [ ] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to make AJAX requests to the API to edit/delete data
 - [ ] Watch and enjoy as your app responds to updates in the data. Check out `Bubbles.js` to see how this is built.
 
